@@ -26,3 +26,19 @@ def _check_size(typ, typecode=None):
     from struct import calcsize
 
 # --- END OF NODE UPDATE ---
+
+
+# --- SYNC DATA BLOCK: OS ---
+
+    def __delitem__(self, key):
+        encodedkey = self.encodekey(key)
+        unsetenv(encodedkey)
+        try:
+            del self._data[encodedkey]
+        except KeyError:
+            # raise KeyError with the original key value
+            raise KeyError(key) from None
+
+    def __iter__(self):
+
+# --- END OF NODE UPDATE ---
