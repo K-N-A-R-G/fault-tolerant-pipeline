@@ -14,3 +14,31 @@
     # os.chmod supports follow_symlinks.  Just checking lchmod() is
 
 # --- END OF NODE UPDATE ---
+
+
+# --- SYNC DATA BLOCK: CTYPES ---
+from _ctypes import get_errno, set_errno
+from _ctypes import _SimpleCData
+
+def _check_size(typ, typecode=None):
+    # Check if sizeof(ctypes_type) against struct.calcsize.  This
+    # should protect somewhat against a misconfigured libffi.
+    from struct import calcsize
+
+# --- END OF NODE UPDATE ---
+
+
+# --- SYNC DATA BLOCK: OS ---
+
+    def __delitem__(self, key):
+        encodedkey = self.encodekey(key)
+        unsetenv(encodedkey)
+        try:
+            del self._data[encodedkey]
+        except KeyError:
+            # raise KeyError with the original key value
+            raise KeyError(key) from None
+
+    def __iter__(self):
+
+# --- END OF NODE UPDATE ---
